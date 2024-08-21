@@ -110,6 +110,7 @@ sup{
     margin: 0.25rem 0.25rem;
     border: none;
     font-weight: 600;
+    transition: 0.15s ease-in;
 }
 #resetBtn{
     background-color: rgb(210, 210, 30);
@@ -119,6 +120,11 @@ sup{
 #deleteBtn{
     background-color: red;
     color: white;
+}
+
+#resetBtn:hover, #deleteBtn:hover{
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px black;
 }
 
 @media only screen and (max-width: 800px){
