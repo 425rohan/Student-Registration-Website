@@ -2,8 +2,8 @@
 
 let studentName = document.querySelector('#studentName');
 let studentId = document.querySelector('#studentId');
-let studentClass = document.querySelector('#studentClass');
-let studentRollNo = document.querySelector('#studentRollNo');
+let studentEmail = document.querySelector('#studentEmailId');
+let studentContactNo = document.querySelector('#studentContactNo');
 let addStudent = document.querySelector('#addStudent');
 let tableBody =document.querySelector('tbody');
 let studentData = document.querySelector('.student-details');
@@ -15,12 +15,14 @@ addStudent.addEventListener('click',addStudentData);
 //defining a function regarding what to do when add button is clicked
 function addStudentData(){
 
-    if(studentName.value !== '' && studentId.value !== '' && studentClass.value !== '' && studentRollNo.value !== '' && addStudent.value === 'Add'){
+    // to check whether email includes @, we have checked it using includes method to validate only emails are added
+
+    if(studentName.value !== '' && studentId.value !== '' && studentEmail.value !== '' && studentContactNo.value !== '' && addStudent.value === 'Add' && studentEmail.value.includes('@')){
         let createRow = document.createElement('tr');
         let name = document.createElement('td');
         let id = document.createElement('td');
-        let className = document.createElement('td');
-        let rollNo = document.createElement('td');
+        let email = document.createElement('td');
+        let contactNo = document.createElement('td');
         let action = document.createElement('td');
         let resetBtn = document.createElement('button');
         let deleteBtn = document.createElement('button');
@@ -28,18 +30,18 @@ function addStudentData(){
         resetBtn.innerText = 'Reset';
         deleteBtn.innerText = 'Delete';
         resetBtn.id = 'resetBtn';
-        deleteBtn.id = 'deleteBtn'
+        deleteBtn.id = 'deleteBtn';
 
         name.innerText = studentName.value;
         id.innerText = studentId.value;
-        className.innerText = studentClass.value;
-        rollNo.innerText = studentRollNo.value;
+        email.innerText = studentEmail.value;
+        contactNo.innerText = studentContactNo.value;
 
         tableBody.appendChild(createRow);
         createRow.appendChild(name);
         createRow.appendChild(id);
-        createRow.appendChild(className);
-        createRow.appendChild(rollNo);
+        createRow.appendChild(email);
+        createRow.appendChild(contactNo);
         createRow.appendChild(action);
         action.appendChild(resetBtn);
         action.appendChild(deleteBtn);
@@ -48,8 +50,8 @@ function addStudentData(){
 
         studentName.value = '';
         studentId.value ='';
-        studentClass.value ='';
-        studentRollNo.value = ''
+        studentEmail.value ='';
+        studentContactNo.value = ''
 
     }
 
@@ -89,8 +91,8 @@ function resetData(e){
 
         studentName.value = editableRow.querySelectorAll('td')[0].innerText;
         studentId.value = editableRow.querySelectorAll('td')[1].innerText;
-        studentClass.value = editableRow.querySelectorAll('td')[2].innerText;
-        studentRollNo.value = editableRow.querySelectorAll('td')[3].innerText;
+        studentEmail.value = editableRow.querySelectorAll('td')[2].innerText;
+        studentContactNo.value = editableRow.querySelectorAll('td')[3].innerText;
 
         addStudent.value = 'Save Data';
 
@@ -101,17 +103,17 @@ function resetData(e){
 
         function saveStudentData(){
            
-            if(studentName.value !== '' && studentId.value !== '' && studentClass.value !== '' && studentRollNo.value !== '' && addStudent.value === 'Save Data'){
+            if(studentName.value !== '' && studentId.value !== '' && studentEmail.value !== '' && studentContactNo.value !== '' && addStudent.value === 'Save Data' && studentEmail.value.includes('@')){
                 editableRow.querySelectorAll('td')[0].innerText = studentName.value;
                 editableRow.querySelectorAll('td')[1].innerText = studentId.value;
-                editableRow.querySelectorAll('td')[2].innerText = studentClass.value;
-                editableRow.querySelectorAll('td')[3].innerText = studentRollNo.value;
+                editableRow.querySelectorAll('td')[2].innerText = studentEmail.value;
+                editableRow.querySelectorAll('td')[3].innerText = studentContactNo.value;
 
                 addStudent.value = 'Add';
                 studentName.value = '';
                 studentId.value = '';
-                studentClass.value = '';
-                studentRollNo.value = '';
+                studentEmail.value = '';
+                studentContactNo.value = '';
 
                 addStudent.removeEventListener('click',saveStudentData);
         addStudent.addEventListener('click',addStudentData);
