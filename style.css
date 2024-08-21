@@ -1,0 +1,177 @@
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url('./Images/bgImage.jpg');
+    background-size: cover;
+}
+
+
+h1,h3{
+    text-align: center;
+    color: white;
+    text-shadow: 3px 2px black;
+    margin: 0.5rem 0;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1000px;
+    gap: 40px;
+    padding: 1rem 2rem; 
+}
+.student-entry-form{
+    flex-grow: 0.5;
+    border: 2px solid rgb(255, 255, 255);
+    padding:0 1rem;
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+
+
+
+sup{
+    color: red;
+}
+.student-entry-form form div input{
+  width: -webkit-fill-available;
+  padding: 0.5rem;
+  border: 1px solid rgb(218, 215, 215);
+}
+
+.student-entry-form form div input:focus{
+    outline: 1px solid grey;
+}
+
+.student-entry-form form div label{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+.student-entry-form form div input[type = 'button']{
+    width: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0.4rem;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    transition: 0.2s ease;
+}
+.student-entry-form form div input[type = 'button']:hover{
+    opacity: 0.6;
+}
+.student-entry-form form div{
+    margin: 1rem 0;
+}
+
+
+
+/* Now styling student details  */
+
+.student-details{
+    border:2px dashed rgb(222, 222, 222);
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    max-height: 300px;
+    /* we can also add vertical scroll bar dynamically using below */
+    /*overflow-y: auto; */
+}
+.student-details table{
+    border: 1px solid grey;
+    text-align: center;
+    border-collapse: collapse;
+}
+.student-details table thead th{
+   padding: 1rem;
+   border-bottom: 1px solid black;
+   background-color: rgb(195, 192, 192);
+   color: black;
+   text-shadow: 2px 2px 2px white;
+   font-size: 1.1rem;
+   position: sticky;
+   top: -1rem;
+}
+.student-details table tbody tr:nth-child(even){
+    background-color: rgb(240, 239, 239);
+}
+.student-details table tbody tr td{
+    padding: 1rem;
+}
+#resetBtn,#deleteBtn{
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    margin: 0.25rem 0.25rem;
+    border: none;
+    font-weight: 600;
+}
+#resetBtn{
+    background-color: rgb(210, 210, 30);
+    color: white;
+    text-shadow: 0.5px 0.5px grey;
+}
+#deleteBtn{
+    background-color: red;
+    color: white;
+}
+
+@media only screen and (max-width: 800px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+        padding: 1rem 0;
+      }
+      .student-entry-form{
+        flex-grow: 0;
+      }
+    
+    .student-details{
+        padding: 1rem;
+      }
+      .student-details table thead th{
+        padding: 0.25rem;
+        font-size: 1rem;
+     }
+     .student-details table tbody tr td{
+        padding: 0.25rem;
+    }
+    
+}
+
+@media only screen and (min-width:1200px) and (max-width: 1800px){
+    html{
+        font-size: 1.5rem;
+    }
+    input{
+        font-size: 0.8rem;
+    }
+    .container{
+        max-width: 1300px;
+    }
+    .student-details{
+        max-height: 500px;
+    }
+}
+
+@media only screen and (min-width:1800px){
+    html{
+        font-size: 2rem;
+    }
+    input{
+        font-size: 1rem;
+    }
+    .container{
+        max-width: 1800px;
+    }
+    .student-details{
+        max-height: 800px;
+    }
+}
+
